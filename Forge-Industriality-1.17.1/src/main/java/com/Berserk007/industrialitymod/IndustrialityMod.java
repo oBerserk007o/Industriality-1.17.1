@@ -1,5 +1,6 @@
 package com.Berserk007.industrialitymod;
 
+import com.Berserk007.industrialitymod.items.ModItems;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -28,13 +29,13 @@ public class IndustrialityMod
     public IndustrialityMod()
     {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        ModItems.register(eventBus);
         eventBus.addListener(this::setup);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void setup(final FMLCommonSetupEvent event)
     {
-        // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
